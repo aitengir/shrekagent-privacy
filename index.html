@@ -367,9 +367,16 @@ let qi=0;
 function rotateQuotes(){
   ['en','ru','ky'].forEach(l=>{
     const el=document.getElementById('q-'+l);
-    if(el){el.style.opacity='0';setTimeout(()=>{el.textContent=quotes[l][qi%quotes[l].length];el.style.opacity='1'},500)}
+    if(el){
+      el.style.opacity='0';
+      setTimeout(()=>{
+        el.textContent=quotes[l][qi%quotes[l].length];
+        el.style.opacity='1';
+      },600);
+    }
   });
-  qi++;setTimeout(rotateQuotes,4500);
+  qi++;
+  setTimeout(rotateQuotes,4500);
 }
 setTimeout(rotateQuotes,3500);
 
