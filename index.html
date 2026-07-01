@@ -6,35 +6,508 @@
     <title>Shrek Agent - Privacy Policy</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: #1a2e1a;
+            background-color: #0d1a0d;
             color: #e8f5e8;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Анимациялуу фон */
+        #canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero {
-            background: linear-gradient(135deg, #1a2e1a 0%, #2d5a2d 50%, #1a2e1a 100%);
-            padding: 60px 20px;
+            background: linear-gradient(180deg, rgba(13,26,13,0.3) 0%, rgba(26,46,26,0.7) 100%);
+            padding: 80px 20px 60px;
             text-align: center;
             position: relative;
-            overflow: hidden;
             border-bottom: 3px solid #4A7C3F;
         }
 
-        .hero::before {
-            content: '🌿🌳🌿';
+        .swamp-house {
             font-size: 80px;
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            opacity: 0.15;
+            margin-bottom: 15px;
+            animation: float 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 30px rgba(74,124,63,0.8));
         }
+
+        @keyframes float {
+            0%,100%{transform:translateY(0) rotate(-2deg)}
+            50%{transform:translateY(-15px) rotate(2deg)}
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #6DB56D;
+            text-shadow: 0 0 30px rgba(109,181,109,0.6);
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            color: #a8d5a8;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .lang-btn {
+            padding: 10px 24px;
+            border-radius: 25px;
+            border: 2px solid #4A7C3F;
+            background: rgba(26,46,26,0.6);
+            color: #a8d5a8;
+            font-family: 'Nunito', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn.active {
+            background: #4A7C3F;
+            color: white;
+            box-shadow: 0 0 20px rgba(74,124,63,0.5);
+        }
+
+        .lang-btn:hover {
+            background: #4A7C3F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: rgba(74,124,63,0.2);
+            border: 1px solid #4A7C3F;
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 13px;
+            color: #a8d5a8;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .card {
+            background: rgba(20,40,20,0.7);
+            border: 1px solid rgba(74,124,63,0.3);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(109,181,109,0.6);
+            box-shadow: 0 10px 40px rgba(74,124,63,0.2);
+        }
+
+        .card h2 {
+            color: #6DB56D;
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card p {
+            color: #c8e6c8;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .card ul { list-style: none; padding: 0; }
+
+        .card ul li {
+            color: #c8e6c8;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(74,124,63,0.15);
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.6;
+        }
+
+        .card ul li:last-child { border-bottom: none; }
+
+        .card ul li::before {
+            content: '🧅';
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .card ul li strong { color: #6DB56D; }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(45,90,45,0.7), rgba(26,58,26,0.7));
+            border: 2px solid #4A7C3F;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 40px rgba(74,124,63,0.2);
+        }
+
+        .contact-card h2 { color: #6DB56D; font-size: 22px; font-weight: 800; margin-bottom: 10px; }
+        .contact-card a { color: #90c990; text-decoration: none; font-size: 18px; font-weight: 700; }
+        .contact-card a:hover { color: #6DB56D; }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #4a7a4a;
+            font-size: 14px;
+            border-top: 1px solid rgba(74,124,63,0.2);
+            background: rgba(13,26,13,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .hidden { display: none; }
+
+        /* Батпак көбүкчөлөрү */
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(109,181,109,0.4), rgba(74,124,63,0.1));
+            border: 1px solid rgba(109,181,109,0.3);
+            animation: bubble-rise linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes bubble-rise {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Анимациялуу батпак фону -->
+<canvas id="canvas"></canvas>
+
+<!-- Батпак көбүкчөлөрү -->
+<div class="content">
+    <div class="hero">
+        <div class="swamp-house">🏡</div>
+        <h1>Shrek Agent</h1>
+        <p class="subtitle">Privacy Policy</p>
+        <div class="lang-switcher">
+            <button class="lang-btn active" onclick="setLang('en', this)">🇬🇧 English</button>
+            <button class="lang-btn" onclick="setLang('ru', this)">🇷🇺 Русский</button>
+            <button class="lang-btn" onclick="setLang('ky', this)">🇰🇬 Кыргызча</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="text-align:center">
+            <span class="date-badge" id="date-badge">📅 Last updated: July 1, 2025</span>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="lang-en">
+            <div class="card">
+                <h2>📱 Information We Collect</h2>
+                <ul>
+                    <li><strong>Voice data:</strong> Recorded temporarily to process your commands. Not stored permanently.</li>
+                    <li><strong>Location data:</strong> Used only to provide weather information. Not stored or shared.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>⚙️ How We Use Your Information</h2>
+                <ul>
+                    <li>Voice commands are sent to <strong>OpenAI Whisper</strong> for transcription</li>
+                    <li>Text is processed by <strong>Anthropic Claude AI</strong> to generate responses</li>
+                    <li>Responses are converted to speech using <strong>ElevenLabs</strong></li>
+                    <li>Location is used only for weather queries via <strong>OpenWeatherMap</strong></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🤝 Third-Party Services</h2>
+                <ul>
+                    <li><strong>OpenAI Whisper</strong> — voice transcription</li>
+                    <li><strong>Anthropic Claude</strong> — AI responses</li>
+                    <li><strong>ElevenLabs</strong> — text to speech</li>
+                    <li><strong>OpenWeatherMap</strong> — weather data</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🔒 Data Storage & Sharing</h2>
+                <p>Shrek Agent does not permanently store your voice recordings, location data, or personal information. All processing is done in real-time. We do not sell or share your personal information with third parties.</p>
+            </div>
+            <div class="card">
+                <h2>👶 Children's Privacy</h2>
+                <p>Shrek Agent is not intended for children under 13 years of age.</p>
+            </div>
+            <div class="card">
+                <h2>🔄 Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time. Changes will be posted on this page.</p>
+            </div>
+            <div class="contact-card">
+                <h2>📬 Contact Us</h2>
+                <p style="color:#a8d5a8;margin-bottom:10px;">Questions about privacy?</p>
+                <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- RUSSIAN -->
+        <div id="lang-ru" class="hidden">
+            <div class="card">
+                <h2>📱 Какие данные мы собираем</h2>
+                <ul>
+                    <li><strong>Голосовые данные:</strong> Записываются временно для обработки команд. Не хранятся постоянно.</li>
+                    <li><strong>Данные о местоположении:</strong> Используются только для предоставления информации о погоде. Не хранятся и не передаются.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>⚙️ Как мы используем данные</h2>
+                <ul>
+                    <li>Голосовые команды отправляются в <strong>OpenAI Whisper</strong> для транскрипции</li>
+                    <li>Текст обрабатывается <strong>Anthropic Claude AI</strong> для генерации ответов</li>
+                    <li>Ответы преобразуются в речь с помощью <strong>ElevenLabs</strong></li>
+                    <li>Местоположение используется только для запросов погоды через <strong>OpenWeatherMap</strong></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🤝 Сторонние сервисы</h2>
+                <ul>
+                    <li><strong>OpenAI Whisper</strong> — транскрипция речи</li>
+                    <li><strong>Anthropic Claude</strong> — AI ответы</li>
+                    <li><strong>ElevenLabs</strong> — синтез речи</li>
+                    <li><strong>OpenWeatherMap</strong> — данные о погоде</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🔒 Хранение и передача данных</h2>
+                <p>Shrek Agent не хранит постоянно ваши голосовые записи, данные о местоположении или личную информацию. Вся обработка происходит в реальном времени. Мы не продаём и не передаём вашу личную информацию третьим лицам.</p>
+            </div>
+            <div class="card">
+                <h2>👶 Конфиденциальность детей</h2>
+                <p>Shrek Agent не предназначен для детей младше 13 лет.</p>
+            </div>
+            <div class="card">
+                <h2>🔄 Изменения политики</h2>
+                <p>Мы можем время от времени обновлять настоящую Политику конфиденциальности. Изменения будут опубликованы на этой странице.</p>
+            </div>
+            <div class="contact-card">
+                <h2>📬 Свяжитесь с нами</h2>
+                <p style="color:#a8d5a8;margin-bottom:10px;">Вопросы о конфиденциальности?</p>
+                <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- KYRGYZ -->
+        <div id="lang-ky" class="hidden">
+            <div class="card">
+                <h2>📱 Кандай маалыматтарды чогултабыз</h2>
+                <ul>
+                    <li><strong>Үн маалыматтары:</strong> Буйруктарды иштетүү үчүн убактылуу жазылат. Туруктуу сакталбайт.</li>
+                    <li><strong>Жайгашкан жер:</strong> Болгону аба ырайы маалыматын берүү үчүн колдонулат. Сакталбайт жана бөлүшүлбөйт.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>⚙️ Маалыматтарды кантип колдонобуз</h2>
+                <ul>
+                    <li>Үн буйруктары <strong>OpenAI Whisper</strong>'га транскрипция үчүн жөнөтүлөт</li>
+                    <li>Текст жооп жаратуу үчүн <strong>Anthropic Claude AI</strong> тарабынан иштетилет</li>
+                    <li>Жооптор <strong>ElevenLabs</strong> аркылуу сүйлөөгө айландырылат</li>
+                    <li>Жайгашкан жер болгону <strong>OpenWeatherMap</strong> аркылуу аба ырайы суроолору үчүн колдонулат</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🤝 Үчүнчү тараптын кызматтары</h2>
+                <ul>
+                    <li><strong>OpenAI Whisper</strong> — үн транскрипция</li>
+                    <li><strong>Anthropic Claude</strong> — AI жооптор</li>
+                    <li><strong>ElevenLabs</strong> — текстти сүйлөөгө айландыруу</li>
+                    <li><strong>OpenWeatherMap</strong> — аба ырайы маалыматтары</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>🔒 Маалыматтарды сактоо жана бөлүшүү</h2>
+                <p>Shrek Agent сиздин үн жазууларыңызды, жайгашкан жер маалыматыңызды же жеке маалыматыңызды туруктуу сактабайт. Бардык иштетүү реалдуу убакытта жүргүзүлөт. Биз жеке маалыматыңызды үчүнчү жактарга сатпайбыз же бербейбиз.</p>
+            </div>
+            <div class="card">
+                <h2>👶 Балдардын купуялуулугу</h2>
+                <p>Shrek Agent 13 жашка толбогон балдарга арналган эмес.</p>
+            </div>
+            <div class="card">
+                <h2>🔄 Саясаттын өзгөрүүлөрү</h2>
+                <p>Биз убакыт-убакыт менен Купуялуулук Саясатын жаңыртышыбыз мүмкүн. Өзгөрүүлөр ушул баракта жарыяланат.</p>
+            </div>
+            <div class="contact-card">
+                <h2>📬 Биз менен байланышыңыз</h2>
+                <p style="color:#a8d5a8;margin-bottom:10px;">Купуялуулук боюнча суроолор?</p>
+                <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>🧅</span>
+        <p>© 2025 Shrek Agent. All rights reserved.</p>
+        <p style="margin-top:5px;">Made with 🌿 in the swamp</p>
+    </div>
+</div>
+
+<script>
+// Батпак анимациясы — Canvas
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Бөлүкчөлөр
+const particles = [];
+
+class Particle {
+    constructor() {
+        this.reset();
+    }
+    reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + 50;
+        this.size = Math.random() * 8 + 3;
+        this.speedY = Math.random() * 1.5 + 0.3;
+        this.speedX = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.5 + 0.1;
+        this.color = `rgba(${74 + Math.random()*50}, ${124 + Math.random()*60}, ${63 + Math.random()*40}, `;
+        this.wobble = Math.random() * Math.PI * 2;
+        this.wobbleSpeed = Math.random() * 0.02 + 0.01;
+        this.type = Math.random() > 0.7 ? 'bubble' : 'particle';
+    }
+    update() {
+        this.y -= this.speedY;
+        this.wobble += this.wobbleSpeed;
+        this.x += Math.sin(this.wobble) * 0.5 + this.speedX;
+        if (this.y < -50) this.reset();
+    }
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.opacity;
+        if (this.type === 'bubble') {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.strokeStyle = this.color + '0.6)';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            ctx.fillStyle = this.color + '0.1)';
+            ctx.fill();
+            // Жарык чекити
+            ctx.beginPath();
+            ctx.arc(this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.25, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(200, 255, 200, 0.4)';
+            ctx.fill();
+        } else {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 0.4, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + '0.8)';
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+}
+
+// 80 бөлүкчө
+for (let i = 0; i < 80; i++) {
+    const p = new Particle();
+    p.y = Math.random() * canvas.height;
+    particles.push(p);
+}
+
+// Жашыл туман
+function drawMist() {
+    const gradient = ctx.createLinearGradient(0, canvas.height * 0.6, 0, canvas.height);
+    gradient.addColorStop(0, 'rgba(13, 40, 13, 0)');
+    gradient.addColorStop(1, 'rgba(13, 40, 13, 0.4)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Фон градиент
+    const bgGrad = ctx.createRadialGradient(
+        canvas.width/2, canvas.height, 0,
+        canvas.width/2, canvas.height/2, canvas.width
+    );
+    bgGrad.addColorStop(0, 'rgba(20, 50, 20, 0.15)');
+    bgGrad.addColorStop(1, 'rgba(13, 26, 13, 0)');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => { p.update(); p.draw(); });
+    drawMist();
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+// Тил которуу
+function setLang(lang, btn) {
+    document.getElementById('lang-en').classList.add('hidden');
+    document.getElementById('lang-ru').classList.add('hidden');
+    document.getElementById('lang-ky').classList.add('hidden');
+    document.getElementById('lang-' + lang).classList.remove('hidden');
+
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const dates = {
+        en: '📅 Last updated: July 1, 2025',
+        ru: '📅 Последнее обновление: 1 июля 2025',
+        ky: '📅 Акыркы жаңыртуу: 2025-жылдын 1-июлу'
+    };
+    document.getElementById('date-badge').textContent = dates[lang];
+}
+</script>
+
+</body>
+</html>        }
 
         .hero::after {
             content: '🌿🌳🌿';
