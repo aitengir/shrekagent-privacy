@@ -1,74 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shrek Agent - Privacy Policy</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>CloneAI - Privacy Policy</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Nunito',sans-serif;background:#050e05;color:#e0f0e0;overflow-x:hidden;cursor:none}
+body{font-family:'Nunito',sans-serif;background:#06060f;color:#e0e4f5;overflow-x:hidden;cursor:none}
 canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 #cur{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-#cur::before{content:'🧅';font-size:22px}
+#cur::before{content:'🤖';font-size:22px}
 .stars{position:fixed;inset:0;z-index:0;pointer-events:none}
-#langScreen{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at center,#0a2a0a 0%,#020802 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;transition:opacity 0.8s,visibility 0.8s}
+
+/* Тил тандоо экраны */
+#langScreen{position:fixed;inset:0;z-index:1000;background:radial-gradient(ellipse at center,#12123a 0%,#04040c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;text-align:center;transition:opacity 0.8s,visibility 0.8s}
 #langScreen.hide{opacity:0;visibility:hidden}
-.ls-shrek{font-size:110px;animation:bob 2.5s ease-in-out infinite;filter:drop-shadow(0 0 50px #3a9a3a)}
+.ls-bot{font-size:110px;animation:bob 2.5s ease-in-out infinite;filter:drop-shadow(0 0 50px #6a5aff)}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-18px) rotate(3deg)}}
-.ls-title{font-size:44px;font-weight:900;color:#7dda7d;margin:14px 0 6px;letter-spacing:-1px;text-shadow:0 0 40px rgba(125,218,125,0.6)}
-.ls-sub{font-size:16px;color:#4a9a4a;margin-bottom:12px}
-.ls-tw{font-size:20px;color:#a0e0a0;font-weight:700;margin-bottom:36px;min-height:30px}
+.ls-title{font-family:'Orbitron',sans-serif;font-size:42px;font-weight:900;margin:14px 0 6px;letter-spacing:1px;background:linear-gradient(135deg,#8a7aff,#5ac8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none}
+.ls-sub{font-size:16px;color:#7a84c9;margin-bottom:12px}
+.ls-tw{font-size:20px;color:#a8b4ff;font-weight:700;margin-bottom:36px;min-height:30px}
 .ls-btns{display:flex;flex-direction:column;gap:14px;width:100%;max-width:300px}
-.ls-btn{padding:16px 32px;border-radius:50px;border:2px solid rgba(74,180,74,0.4);background:rgba(10,30,10,0.6);color:#7dda7d;font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(10px)}
-.ls-btn:hover{background:linear-gradient(135deg,#1a6a1a,#2a9a2a);border-color:#5acc5a;color:#c0f0c0;transform:scale(1.05);box-shadow:0 0 40px rgba(74,180,74,0.4)}
+.ls-btn{padding:16px 32px;border-radius:50px;border:2px solid rgba(106,90,255,0.4);background:rgba(18,18,50,0.6);color:#a8b4ff;font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;cursor:pointer;transition:all 0.3s;backdrop-filter:blur(10px)}
+.ls-btn:hover{background:linear-gradient(135deg,#4a3ad0,#6a5aff);border-color:#8a7aff;color:#eef0ff;transform:scale(1.05);box-shadow:0 0 40px rgba(106,90,255,0.4)}
+
 .wrap{position:relative;z-index:1}
-.langBar{position:sticky;top:0;z-index:100;display:flex;gap:10px;justify-content:center;padding:14px 20px;background:rgba(3,8,3,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(74,140,74,0.2);flex-wrap:wrap}
-.lb{padding:8px 20px;border-radius:25px;border:1.5px solid rgba(74,140,74,0.35);background:transparent;color:#5aaa5a;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s}
-.lb:hover{background:rgba(74,140,74,0.2);color:#7dda7d;transform:translateY(-2px)}
-.lb.on{background:linear-gradient(135deg,#1a5a1a,#2a7a2a);border-color:#4aaa4a;color:#c0f0c0;box-shadow:0 0 20px rgba(74,180,74,0.25)}
+.langBar{position:sticky;top:0;z-index:100;display:flex;gap:10px;justify-content:center;padding:14px 20px;background:rgba(5,5,16,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(106,90,255,0.2);flex-wrap:wrap}
+.lb{padding:8px 20px;border-radius:25px;border:1.5px solid rgba(106,90,255,0.35);background:transparent;color:#7a84c9;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s}
+.lb:hover{background:rgba(106,90,255,0.2);color:#a8b4ff;transform:translateY(-2px)}
+.lb.on{background:linear-gradient(135deg,#3a2ab0,#5a4ae0);border-color:#8a7aff;color:#eef0ff;box-shadow:0 0 20px rgba(106,90,255,0.25)}
+
 .hero{min-height:65vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center}
-.hero-onion{font-size:100px;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 0 40px #2a8a2a)}
-.hero-title{font-size:50px;font-weight:900;color:#7dda7d;letter-spacing:-1px;text-shadow:0 0 60px rgba(125,218,125,0.4);margin:12px 0 6px}
-.hero-sub{font-size:18px;color:#5aaa5a;font-weight:600}
-.welcome{font-size:20px;color:#a0f0a0;font-weight:700;margin-top:18px;min-height:60px;line-height:1.5;white-space:pre-line}
+.hero-bot{font-size:100px;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 0 40px #5a4ae0)}
+.hero-title{font-family:'Orbitron',sans-serif;font-size:48px;font-weight:900;letter-spacing:1px;background:linear-gradient(135deg,#8a7aff,#5ac8ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin:12px 0 6px}
+.hero-sub{font-size:18px;color:#7a84c9;font-weight:600}
+.welcome{font-size:20px;color:#b8c2ff;font-weight:700;margin-top:18px;min-height:60px;line-height:1.5;white-space:pre-line}
+
 .main{max-width:760px;margin:0 auto;padding:40px 20px 80px}
-.badge{display:inline-block;background:rgba(74,140,74,0.12);border:1px solid rgba(74,140,74,0.3);border-radius:25px;padding:5px 18px;font-size:13px;color:#5aaa5a;margin-bottom:32px}
+.badge{display:inline-block;background:rgba(106,90,255,0.12);border:1px solid rgba(106,90,255,0.3);border-radius:25px;padding:5px 18px;font-size:13px;color:#7a84c9;margin-bottom:32px}
 .sec{display:none}.sec.vis{display:block}
-.card{background:rgba(5,15,5,0.82);border:1px solid rgba(74,140,74,0.18);border-radius:18px;margin-bottom:14px;overflow:hidden;cursor:pointer;backdrop-filter:blur(15px);transition:border-color 0.3s,box-shadow 0.3s}
-.card:hover{border-color:rgba(125,218,125,0.35);box-shadow:0 10px 50px rgba(42,120,42,0.15)}
+
+.card{background:rgba(10,10,28,0.82);border:1px solid rgba(106,90,255,0.18);border-radius:18px;margin-bottom:14px;overflow:hidden;cursor:pointer;backdrop-filter:blur(15px);transition:border-color 0.3s,box-shadow 0.3s}
+.card:hover{border-color:rgba(138,122,255,0.4);box-shadow:0 10px 50px rgba(74,58,208,0.2)}
 .card-head{padding:20px 26px;display:flex;align-items:center;justify-content:space-between;transition:background 0.3s}
-.card-head:hover{background:rgba(20,50,20,0.4)}
-.card h2{color:#7dda7d;font-size:17px;font-weight:800;display:flex;align-items:center;gap:10px}
-.arr{color:#3a8a3a;font-size:16px;transition:transform 0.3s;flex-shrink:0}
+.card-head:hover{background:rgba(30,26,80,0.4)}
+.card h2{color:#a8b4ff;font-size:17px;font-weight:800;display:flex;align-items:center;gap:10px}
+.arr{color:#5a64b0;font-size:16px;transition:transform 0.3s;flex-shrink:0}
 .card.open .arr{transform:rotate(180deg)}
 .card-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
 .card.open .card-body{max-height:600px}
 .card-inner{padding:0 26px 22px}
-.card p{color:#a0c8a0;line-height:1.85;font-size:15px}
+.card p{color:#a0a8d8;line-height:1.85;font-size:15px}
 .card ul{list-style:none;padding:0}
-.card ul li{color:#a0c8a0;padding:9px 0;border-bottom:1px solid rgba(74,140,74,0.1);font-size:15px;display:flex;align-items:flex-start;gap:10px;line-height:1.65}
+.card ul li{color:#a0a8d8;padding:9px 0;border-bottom:1px solid rgba(106,90,255,0.1);font-size:15px;display:flex;align-items:flex-start;gap:10px;line-height:1.65}
 .card ul li:last-child{border-bottom:none}
-.card ul li::before{content:'🧅';font-size:14px;flex-shrink:0;margin-top:1px}
-.card ul li strong{color:#7dda7d}
-.quotes{margin:28px 0;padding:26px;background:rgba(8,25,8,0.7);border:1px solid rgba(74,140,74,0.2);border-radius:18px;text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center; posittio:relative;}
-.quote-text{color:#8acc8a;font-size:16px;font-style:italic;font-weight:600;line-height:1.6;transition:opacity 0.5s;position:absolute;left:0;right:0;padding:0 20px}
-.contact{background:linear-gradient(135deg,rgba(15,50,15,0.85),rgba(5,18,5,0.9));border:2px solid rgba(74,180,74,0.25);border-radius:22px;padding:36px;text-align:center;margin-bottom:18px;box-shadow:0 0 50px rgba(42,140,42,0.12)}
-.contact h2{color:#7dda7d;font-size:22px;font-weight:900;margin-bottom:10px}
-.contact p{color:#5aaa5a;margin-bottom:14px}
-.contact a{color:#a0f0a0;text-decoration:none;font-size:19px;font-weight:800}
+.card ul li::before{content:'🤖';font-size:14px;flex-shrink:0;margin-top:1px}
+.card ul li strong{color:#a8b4ff}
+
+.quotes{margin:28px 0;padding:26px;background:rgba(12,12,32,0.7);border:1px solid rgba(106,90,255,0.2);border-radius:18px;text-align:center;min-height:120px;display:flex;align-items:center;justify-content:center;position:relative}
+.quote-text{color:#8a94d8;font-size:16px;font-style:italic;font-weight:600;line-height:1.6;transition:opacity 0.5s;padding:0 20px}
+
+.contact{background:linear-gradient(135deg,rgba(40,32,120,0.7),rgba(10,8,40,0.9));border:2px solid rgba(106,90,255,0.25);border-radius:22px;padding:36px;text-align:center;margin-bottom:18px;box-shadow:0 0 50px rgba(74,58,208,0.15)}
+.contact h2{color:#a8b4ff;font-size:22px;font-weight:900;margin-bottom:10px}
+.contact p{color:#7a84c9;margin-bottom:14px}
+.contact a{color:#8ac2ff;text-decoration:none;font-size:19px;font-weight:800}
+.contact a:hover{color:#a8d4ff}
+
 .reject-zone{text-align:center;margin:18px 0 8px}
-.reject-btn{padding:12px 30px;border-radius:30px;border:1.5px solid rgba(200,80,80,0.3);background:transparent;color:#8a4a4a;font-family:'Nunito',sans-serif;font-size:14px;cursor:pointer;transition:all 0.3s}
-.reject-btn:hover{background:rgba(150,40,40,0.2);color:#f08080;border-color:rgba(200,80,80,0.5)}
-.shrek-reply{display:none;margin-top:14px;padding:16px 22px;background:rgba(8,25,8,0.8);border:1px solid rgba(74,140,74,0.25);border-radius:14px;color:#8acc8a;font-size:15px;font-style:italic}
-.foot{text-align:center;padding:36px 20px;color:#1a4a1a;font-size:14px;border-top:1px solid rgba(74,140,74,0.1)}
+.reject-btn{padding:12px 30px;border-radius:30px;border:1.5px solid rgba(200,80,120,0.3);background:transparent;color:#8a5a6a;font-family:'Nunito',sans-serif;font-size:14px;cursor:pointer;transition:all 0.3s}
+.reject-btn:hover{background:rgba(150,40,80,0.2);color:#f080a0;border-color:rgba(200,80,120,0.5)}
+.clone-reply{display:none;margin-top:14px;padding:16px 22px;background:rgba(12,12,32,0.8);border:1px solid rgba(106,90,255,0.25);border-radius:14px;color:#8a94d8;font-size:15px;font-style:italic}
+
+.foot{text-align:center;padding:36px 20px;color:#3a4080;font-size:14px;border-top:1px solid rgba(106,90,255,0.1)}
 @keyframes twinkle{0%,100%{opacity:0.2}50%{opacity:1}}
-  @media(max-width:600px){
-  .ls-shrek{font-size:80px}
-  .ls-title{font-size:32px}
+
+@media(max-width:600px){
+  .ls-bot{font-size:80px}
+  .ls-title{font-size:30px}
   .ls-btn{font-size:16px;padding:14px 24px}
-  .hero-onion{font-size:70px}
-  .hero-title{font-size:36px}
+  .hero-bot{font-size:70px}
+  .hero-title{font-size:32px}
   .welcome{font-size:17px}
   .card h2{font-size:15px}
   .card-head{padding:16px 18px}
@@ -93,8 +105,8 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
 
 <!-- Тил тандоо экраны -->
 <div id="langScreen">
-  <div class="ls-shrek">🧅</div>
-  <h1 class="ls-title">Shrek Agent</h1>
+  <div class="ls-bot">🤖</div>
+  <h1 class="ls-title">CloneAI</h1>
   <p class="ls-sub">Privacy Policy</p>
   <div class="ls-tw" id="tw"></div>
   <div class="ls-btns">
@@ -114,14 +126,14 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
     </div>
 
     <div class="hero">
-      <div class="hero-onion">🧅</div>
-      <h1 class="hero-title">Shrek Agent</h1>
+      <div class="hero-bot">🤖</div>
+      <h1 class="hero-title">CloneAI</h1>
       <p class="hero-sub">Privacy Policy</p>
       <div class="welcome" id="welcomeMsg"></div>
     </div>
 
     <div class="main">
-      <div style="text-align:center"><span class="badge" id="dbadge">📅 Last updated: July 1, 2025</span></div>
+      <div style="text-align:center"><span class="badge" id="dbadge">📅 Last updated: July 13, 2026</span></div>
 
       <!-- ENGLISH -->
       <div class="sec vis" id="s-en">
@@ -129,7 +141,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-head"><h2>📱 Information We Collect</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>Voice data:</strong> Recorded temporarily to process your commands. Not stored permanently.</li>
+            <li><strong>Photo:</strong> Used only to create your personal avatar. Stored locally on your device.</li>
             <li><strong>Location data:</strong> Used only to provide weather information. Not stored or shared.</li>
+            <li><strong>Account data:</strong> Email and name for authentication via Firebase.</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -137,8 +151,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li>Voice commands → <strong>OpenAI Whisper</strong> for transcription</li>
             <li>Text processed by <strong>Anthropic Claude AI</strong> to generate responses</li>
-            <li>Responses converted to speech via <strong>ElevenLabs</strong></li>
+            <li>Responses converted to speech via <strong>Microsoft Edge TTS</strong></li>
             <li>Location used only for weather via <strong>OpenWeatherMap</strong></li>
+            <li>Authentication handled by <strong>Google Firebase</strong></li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -146,31 +161,32 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>OpenAI Whisper</strong> — voice transcription</li>
             <li><strong>Anthropic Claude</strong> — AI responses</li>
-            <li><strong>ElevenLabs</strong> — text to speech</li>
+            <li><strong>Microsoft Edge TTS</strong> — text to speech</li>
             <li><strong>OpenWeatherMap</strong> — weather data</li>
+            <li><strong>Google Firebase</strong> — authentication and crash reporting</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔒 Data Storage & Sharing</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent does not permanently store your voice recordings, location data, or personal information. All processing is done in real-time. We never sell or share your data with third parties.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI does not permanently store your voice recordings or location data. Your avatar photo stays on your device. All processing is done in real-time. We never sell or share your data with third parties.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>👶 Children's Privacy</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔄 Changes to This Policy</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><p>We may update this Privacy Policy from time to time. All changes will be posted on this page.</p></div></div>
         </div>
-        <div class="quotes"><div class="quote-text" id="q-en">"Layers! Onions have layers. Ogres have layers!" 🧅</div></div>
+        <div class="quotes"><div class="quote-text" id="q-en">"I'm not just an app. I'm your digital twin!" 🤖</div></div>
         <div class="contact">
           <h2>📬 Contact Us</h2>
           <p>Questions about privacy?</p>
-          <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+          <a href="mailto:cloneai.app@gmail.com">cloneai.app@gmail.com</a>
         </div>
         <div class="reject-zone">
           <button class="reject-btn" onclick="showReject('en')">I don't agree with this policy</button>
-          <div class="shrek-reply" id="r-en">🧅 "Oh really? Then GET OUT OF MY SWAMP! ...Just kidding, friend. You're always welcome here!"</div>
+          <div class="clone-reply" id="r-en">🤖 "Access denied? Just kidding — you're always welcome. Your clone respects your choice!"</div>
         </div>
       </div>
 
@@ -180,7 +196,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-head"><h2>📱 Какие данные мы собираем</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>Голосовые данные:</strong> Записываются временно для обработки команд. Не хранятся постоянно.</li>
+            <li><strong>Фото:</strong> Используется только для создания вашего аватара. Хранится локально на устройстве.</li>
             <li><strong>Местоположение:</strong> Только для погоды. Не хранится и не передаётся.</li>
+            <li><strong>Данные аккаунта:</strong> Email и имя для авторизации через Firebase.</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -188,8 +206,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li>Голосовые команды → <strong>OpenAI Whisper</strong> для транскрипции</li>
             <li>Текст обрабатывается <strong>Anthropic Claude AI</strong></li>
-            <li>Ответы озвучиваются через <strong>ElevenLabs</strong></li>
+            <li>Ответы озвучиваются через <strong>Microsoft Edge TTS</strong></li>
             <li>Местоположение только для погоды через <strong>OpenWeatherMap</strong></li>
+            <li>Авторизация через <strong>Google Firebase</strong></li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -197,31 +216,32 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>OpenAI Whisper</strong> — транскрипция речи</li>
             <li><strong>Anthropic Claude</strong> — AI ответы</li>
-            <li><strong>ElevenLabs</strong> — синтез речи</li>
+            <li><strong>Microsoft Edge TTS</strong> — синтез речи</li>
             <li><strong>OpenWeatherMap</strong> — данные о погоде</li>
+            <li><strong>Google Firebase</strong> — авторизация и отчёты об ошибках</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔒 Хранение и передача данных</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent не хранит постоянно ваши голосовые записи, данные о местоположении или личную информацию. Вся обработка в реальном времени. Мы никогда не продаём данные.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI не хранит постоянно ваши голосовые записи и данные о местоположении. Фото аватара остаётся на вашем устройстве. Вся обработка в реальном времени. Мы никогда не продаём и не передаём данные третьим лицам.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>👶 Конфиденциальность детей</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent не предназначен для детей младше 13 лет.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI не предназначен для детей младше 13 лет. Мы намеренно не собираем данные детей младше 13 лет.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔄 Изменения политики</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><p>Мы можем обновлять Политику конфиденциальности. Все изменения публикуются на этой странице.</p></div></div>
         </div>
-        <div class="quotes"><div class="quote-text" id="q-ru">"Слои! У лука есть слои. У огров тоже слои!" 🧅</div></div>
+        <div class="quotes"><div class="quote-text" id="q-ru">"Я не просто приложение. Я твой цифровой двойник!" 🤖</div></div>
         <div class="contact">
           <h2>📬 Свяжитесь с нами</h2>
           <p>Вопросы о конфиденциальности?</p>
-          <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+          <a href="mailto:cloneai.app@gmail.com">cloneai.app@gmail.com</a>
         </div>
         <div class="reject-zone">
           <button class="reject-btn" onclick="showReject('ru')">Я не согласен с этой политикой</button>
-          <div class="shrek-reply" id="r-ru">🧅 "Не согласен?! Тогда УБИРАЙСЯ ИЗ МОЕГО БОЛОТА! ...Шучу, дружище, ты всегда тут желанный гость!"</div>
+          <div class="clone-reply" id="r-ru">🤖 "Доступ запрещён? Шучу — тебе здесь всегда рады. Твой клон уважает твой выбор!"</div>
         </div>
       </div>
 
@@ -231,7 +251,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-head"><h2>📱 Кандай маалымат чогулталат</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>Үн маалыматтары:</strong> Убактылуу жазылат. Туруктуу сакталбайт.</li>
+            <li><strong>Сүрөт:</strong> Болгону аватар жасоо үчүн. Түзмөгүңүздө гана сакталат.</li>
             <li><strong>Жайгашкан жер:</strong> Болгону аба ырайы үчүн. Сакталбайт.</li>
+            <li><strong>Аккаунт маалыматы:</strong> Email жана ат Firebase аркылуу кирүү үчүн.</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -239,8 +261,9 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li>Үн буйруктары → <strong>OpenAI Whisper</strong></li>
             <li>Текст <strong>Anthropic Claude AI</strong> тарабынан иштетилет</li>
-            <li>Жооптор <strong>ElevenLabs</strong> аркылуу үнгө айландырылат</li>
+            <li>Жооптор <strong>Microsoft Edge TTS</strong> аркылуу үнгө айландырылат</li>
             <li>Жайгашкан жер болгону <strong>OpenWeatherMap</strong> аркылуу</li>
+            <li>Кирүү <strong>Google Firebase</strong> аркылуу</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
@@ -248,39 +271,40 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
           <div class="card-body"><div class="card-inner"><ul>
             <li><strong>OpenAI Whisper</strong> — үн транскрипция</li>
             <li><strong>Anthropic Claude</strong> — AI жооптор</li>
-            <li><strong>ElevenLabs</strong> — текстти үнгө айландыруу</li>
+            <li><strong>Microsoft Edge TTS</strong> — текстти үнгө айландыруу</li>
             <li><strong>OpenWeatherMap</strong> — аба ырайы маалыматы</li>
+            <li><strong>Google Firebase</strong> — кирүү жана ката отчёттору</li>
           </ul></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔒 Маалыматты сактоо жана берүү</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent маалыматыңызды туруктуу сактабайт. Баары реалдуу убакытта иштетилет. Биз маалыматыңызды эч качан бербейбиз.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI үн жазууларыңызды жана жайгашкан жер маалыматыңызды туруктуу сактабайт. Аватар сүрөтү түзмөгүңүздө гана калат. Баары реалдуу убакытта иштетилет. Биз маалыматыңызды эч качан үчүнчү жактарга бербейбиз.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>👶 Балдардын купуялуулугу</h2><span class="arr">▼</span></div>
-          <div class="card-body"><div class="card-inner"><p>Shrek Agent 13 жашка толбогон балдарга арналган эмес.</p></div></div>
+          <div class="card-body"><div class="card-inner"><p>CloneAI 13 жашка толбогон балдарга арналган эмес. Биз балдардын маалыматын атайылап чогултпайбыз.</p></div></div>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <div class="card-head"><h2>🔄 Саясаттын өзгөрүүлөрү</h2><span class="arr">▼</span></div>
           <div class="card-body"><div class="card-inner"><p>Биз Купуялуулук Саясатын жаңыртышыбыз мүмкүн. Бардык өзгөрүүлөр ушул баракта жарыяланат.</p></div></div>
         </div>
-        <div class="quotes"><div class="quote-text" id="q-ky">"Кабырчыктар! Пияздын кабырчыктары бар. Огрдун да!" 🧅</div></div>
+        <div class="quotes"><div class="quote-text" id="q-ky">"Мен жөн эле колдонмо эмесмин. Мен сенин санарип эгизиңмин!" 🤖</div></div>
         <div class="contact">
           <h2>📬 Биз менен байланышыңыз</h2>
           <p>Купуялуулук боюнча суроолор?</p>
-          <a href="mailto:shrekagent@gmail.com">shrekagent@gmail.com</a>
+          <a href="mailto:cloneai.app@gmail.com">cloneai.app@gmail.com</a>
         </div>
         <div class="reject-zone">
           <button class="reject-btn" onclick="showReject('ky')">Мен бул саясат менен макул эмесмин</button>
-          <div class="shrek-reply" id="r-ky">🧅 "Макул эмессиңби?! Анда БАТПАГЫМДАН КЕТ! ...Чындыгында, дос, сен ар дайым кош келипсиң!"</div>
+          <div class="clone-reply" id="r-ky">🤖 "Кирүү тыюу салынганбы? Тамашалап жатам — сен ар дайым кош келипсиң. Клонуң тандооңду сыйлайт!"</div>
         </div>
       </div>
 
     </div>
     <div class="foot">
-      <p style="font-size:36px;margin-bottom:10px">🧅</p>
-      <p>© 2025 Shrek Agent. All rights reserved.</p>
-      <p style="margin-top:6px;color:#0f2a0f">Made with 🌿 in the swamp</p>
+      <p style="font-size:36px;margin-bottom:10px">🤖</p>
+      <p>© 2026 CloneAI. All rights reserved.</p>
+      <p style="margin-top:6px;color:#20265a">Made with 💜 by your digital twin</p>
     </div>
   </div>
 </div>
@@ -290,40 +314,71 @@ canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-even
 const cur=document.getElementById('cur');
 document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'});
 
-// Cursor sparkles
+// Cursor sparkles — көк-фиолет
 document.addEventListener('mousemove',e=>{
   if(Math.random()>.75){
     const sp=document.createElement('div');
     sp.textContent=['✦','·','⋆','✧','*'][Math.floor(Math.random()*5)];
-    sp.style.cssText=`position:fixed;left:${e.clientX+Math.random()*16-8}px;top:${e.clientY+Math.random()*16-8}px;color:rgba(125,218,125,${Math.random()*0.7+0.2});font-size:${10+Math.random()*14}px;pointer-events:none;z-index:9998;transition:all 0.7s ease`;
+    const colors=['138,122,255','90,200,255','168,180,255'];
+    const c=colors[Math.floor(Math.random()*colors.length)];
+    sp.style.cssText=`position:fixed;left:${e.clientX+Math.random()*16-8}px;top:${e.clientY+Math.random()*16-8}px;color:rgba(${c},${Math.random()*0.7+0.2});font-size:${10+Math.random()*14}px;pointer-events:none;z-index:9998;transition:all 0.7s ease`;
     document.body.appendChild(sp);
     setTimeout(()=>{sp.style.opacity='0';sp.style.transform=`translateY(-${15+Math.random()*20}px) scale(0)`;setTimeout(()=>sp.remove(),700)},30);
   }
 });
 
-// Stars
+// Жылдыздар
 const starsEl=document.getElementById('stars');
 for(let i=0;i<130;i++){
   const s=document.createElement('div');
-  s.style.cssText=`position:absolute;border-radius:50%;background:rgba(${100+Math.random()*100},${180+Math.random()*70},${100+Math.random()*80},${Math.random()*0.55+0.1});width:${Math.random()*2.2+0.8}px;height:${Math.random()*2.2+0.8}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:twinkle ${2+Math.random()*4}s ease-in-out infinite ${Math.random()*4}s`;
+  const hue=Math.random()>.5?'138,122,255':'90,200,255';
+  s.style.cssText=`position:absolute;border-radius:50%;background:rgba(${hue},${Math.random()*0.55+0.1});width:${Math.random()*2.2+0.8}px;height:${Math.random()*2.2+0.8}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:twinkle ${2+Math.random()*4}s ease-in-out infinite ${Math.random()*4}s`;
   starsEl.appendChild(s);
 }
 
-// Canvas particles
+// Canvas — санарип бөлүкчөлөр (код жамгыры + байланыш тармагы)
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
 function resize(){cv.width=innerWidth;cv.height=innerHeight}resize();addEventListener('resize',resize);
+
 const P=[];
 class Dot{
   constructor(){this.r()}
-  r(){this.x=Math.random()*cv.width;this.y=cv.height+25;this.s=Math.random()*9+3;this.vy=Math.random()*0.7+0.15;this.vx=(Math.random()-.5)*0.35;this.a=Math.random()*0.35+0.05;this.w=Math.random()*Math.PI*2;this.ws=Math.random()*0.012+0.004;this.isBub=Math.random()>.4}
-  u(){this.y-=this.vy;this.w+=this.ws;this.x+=Math.sin(this.w)*0.5+this.vx;if(this.y<-30)this.r()}
-  d(){ctx.save();ctx.globalAlpha=this.a;if(this.isBub){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.strokeStyle='rgba(70,170,70,0.55)';ctx.lineWidth=1.1;ctx.stroke();ctx.fillStyle='rgba(70,170,70,0.04)';ctx.fill();ctx.beginPath();ctx.arc(this.x-this.s*.28,this.y-this.s*.28,this.s*.2,0,Math.PI*2);ctx.fillStyle='rgba(160,240,160,0.28)';ctx.fill()}else{ctx.beginPath();ctx.arc(this.x,this.y,this.s*.3,0,Math.PI*2);ctx.fillStyle='rgba(55,155,55,0.65)';ctx.fill()}ctx.restore()}
+  r(){this.x=Math.random()*cv.width;this.y=Math.random()*cv.height;this.s=Math.random()*2+1;this.vx=(Math.random()-.5)*0.4;this.vy=(Math.random()-.5)*0.4;this.a=Math.random()*0.5+0.2}
+  u(){this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>cv.width)this.vx*=-1;
+    if(this.y<0||this.y>cv.height)this.vy*=-1}
+  d(){ctx.save();ctx.globalAlpha=this.a;
+    ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);
+    ctx.fillStyle='rgba(106,90,255,0.8)';ctx.fill();ctx.restore()}
 }
-for(let i=0;i<110;i++){const d=new Dot();d.y=Math.random()*cv.height;P.push(d)}
-function drawCanvas(){ctx.clearRect(0,0,cv.width,cv.height);const g=ctx.createRadialGradient(cv.width/2,cv.height,0,cv.width/2,cv.height*.2,cv.width);g.addColorStop(0,'rgba(12,40,12,0.1)');g.addColorStop(1,'rgba(3,8,3,0)');ctx.fillStyle=g;ctx.fillRect(0,0,cv.width,cv.height);P.forEach(p=>{p.u();p.d()});requestAnimationFrame(drawCanvas)}
+for(let i=0;i<60;i++){P.push(new Dot())}
+
+function drawCanvas(){
+  ctx.clearRect(0,0,cv.width,cv.height);
+  // Байланыш сызыктары — жакын бөлүкчөлөр туташат
+  for(let i=0;i<P.length;i++){
+    for(let j=i+1;j<P.length;j++){
+      const dx=P[i].x-P[j].x,dy=P[i].y-P[j].y;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<130){
+        ctx.save();
+        ctx.globalAlpha=(1-dist/130)*0.15;
+        ctx.beginPath();
+        ctx.moveTo(P[i].x,P[i].y);
+        ctx.lineTo(P[j].x,P[j].y);
+        ctx.strokeStyle='#6a5aff';
+        ctx.lineWidth=0.6;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+  }
+  P.forEach(p=>{p.u();p.d()});
+  requestAnimationFrame(drawCanvas)
+}
 drawCanvas();
 
-// Typewriter on lang screen
+// Typewriter — тил тандоо экранында
 const twEl=document.getElementById('tw');
 const twMsgs=["Choose your language...","Выберите язык...","Тилди тандаңыз..."];
 let twMi=0,twI=0,twDir=1;
@@ -335,11 +390,11 @@ function typeIt(){
 }
 typeIt();
 
-// Welcome messages
+// Кош келүү билдирүүлөрү
 const welcomes={
-  en:{msg:"Welcome to my swamp! 🌿\nYour privacy is safe here!",badge:"📅 Last updated: July 1, 2025"},
-  ru:{msg:"Добро пожаловать в моё болото! 🌿\nВаша конфиденциальность в безопасности!",badge:"📅 Последнее обновление: 1 июля 2025"},
-  ky:{msg:"Батпагыма кош келипсиң! 🌿\nКупуялуулугуңуз коопсуз жерде!",badge:"📅 Акыркы жаңыртуу: 2025-жылдын 1-июлу"}
+  en:{msg:"Welcome! I'm your digital clone 🤖\nYour privacy is protected here!",badge:"📅 Last updated: July 13, 2026"},
+  ru:{msg:"Привет! Я твой цифровой клон 🤖\nТвоя конфиденциальность под защитой!",badge:"📅 Последнее обновление: 13 июля 2026"},
+  ky:{msg:"Салам! Мен сенин санарип клонуңмун 🤖\nКупуялуулугуң коргоодо!",badge:"📅 Акыркы жаңыртуу: 2026-жылдын 13-июлу"}
 };
 
 function chooseLang(l){
@@ -347,8 +402,6 @@ function chooseLang(l){
   setTimeout(()=>{
     document.getElementById('mainPage').style.display='block';
     setLang(l,document.getElementById('lb-'+l));
-    typeWelcome(welcomes[l].msg);
-    document.getElementById('dbadge').textContent=welcomes[l].badge;
   },750);
 }
 
@@ -362,7 +415,7 @@ function typeWelcome(msg){
 function setLang(l,btn){
   ['en','ru','ky'].forEach(x=>{
     const s=document.getElementById('s-'+x);
-    if(s){s.classList.remove('vis');s.className='sec'}
+    if(s){s.classList.remove('vis')}
   });
   const target=document.getElementById('s-'+l);
   if(target){target.classList.add('vis')}
@@ -374,14 +427,14 @@ function setLang(l,btn){
   }
 }
 
-// Toggle accordion cards
+// Accordion карточкалар
 function toggleCard(card){card.classList.toggle('open')}
 
-// Quotes rotation
+// Клон цитаталары
 const quotes={
-  en:["\"Layers! Onions have layers. Ogres have layers!\" 🧅","\"That'll do, Donkey. That'll do.\" 🫏","\"What are you doing in my swamp?!\" 🌿","\"Better out than in, I always say!\" 😄","\"Ogres are like onions!\" 🧅"],
-  ru:["\"Слои! У лука есть слои. У огров тоже слои!\" 🧅","\"Убирайся из моего болота!\" 🌿","\"Я ОГР! Берите вилы и факелы!\" 🔦","\"Из болота — лучше, чем в болото!\" 😄","\"Огры — как лук!\" 🧅"],
-  ky:["\"Кабырчыктар! Пияздын кабырчыктары бар. Огрдун да!\" 🧅","\"Батпагымдан чыгып кет!\" 🌿","\"Мен ОГРМУН!\" 🔦","\"Пияз сыяктуу — кабырчыктары бар!\" 🧅","\"Жакшы, Эшек. Жакшы.\" 🫏"]
+  en:['"I\'m not just an app. I\'m your digital twin!" 🤖','"Your data stays yours. Always." 🔒','"Two heads are better than one — especially if one is a clone!" ✨','"I learn, I grow, I evolve — together with you!" 🚀','"Privacy first. That\'s my code." 💜'],
+  ru:['"Я не просто приложение. Я твой цифровой двойник!" 🤖','"Твои данные остаются твоими. Всегда." 🔒','"Одна голова хорошо, а с клоном — лучше!" ✨','"Я учусь, расту и развиваюсь — вместе с тобой!" 🚀','"Конфиденциальность прежде всего. Это мой код." 💜'],
+  ky:['"Мен жөн эле колдонмо эмесмин. Мен сенин санарип эгизиңмин!" 🤖','"Маалыматың өзүңдө калат. Ар дайым." 🔒','"Бир баш жакшы, клон менен — андан жакшы!" ✨','"Мен үйрөнөм, өсөм — сени менен бирге!" 🚀','"Купуялуулук биринчи орунда. Бул менин кодум." 💜']
 };
 let qi=0;
 function rotateQuotes(){
@@ -395,12 +448,11 @@ function rotateQuotes(){
       },600);
     }
   });
-  qi++;
-  setTimeout(rotateQuotes,4500);
+  qi++;setTimeout(rotateQuotes,4500);
 }
 setTimeout(rotateQuotes,3500);
 
-// Reject
+// Макул эмес баскычы
 function showReject(l){
   const el=document.getElementById('r-'+l);
   if(el){el.style.display='block'}
